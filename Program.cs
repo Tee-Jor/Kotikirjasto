@@ -15,6 +15,7 @@ class Program
 
             while (true)
 
+
             {
                 Console.Clear();
                 Console.WriteLine("Tervetuloa Kotikirjastoosi. Mitä haluat tehdä?\n1. Lisää kirja.\n2. Poista Kirja"
@@ -76,5 +77,6 @@ class Program
 
         }
     }   
+         
         
 }

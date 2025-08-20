@@ -1,5 +1,8 @@
 namespace Kotikirjasto;
+
 using System.Text.Json;
+
+
 public class Book
 {
 
@@ -15,7 +18,7 @@ public class Book
 
     public Book(string title, string author, string genre, int year)
     {
-        
+
         this.Title = title;
         this.Author = author;
         this.Genre = genre;
@@ -53,12 +56,13 @@ public class Book
 
         }
         if (found)
-            {
-                Console.WriteLine($"{title}: {author} can already be found on the book list");
-            }
+        {
+            Console.WriteLine($"{title}: {author} can already be found on the book list");
+        }
         else
         {
             Console.WriteLine($"{title}: {author} is added to the book list");
+
             BookList.Add(newBook);
         }
 
@@ -84,6 +88,7 @@ public class Book
             if (BookList[i].Title.Equals(title, StringComparison.CurrentCultureIgnoreCase) && BookList[i].Author.Equals(author, StringComparison.CurrentCultureIgnoreCase))
             {
                 Console.WriteLine($"{title}: {author} has been deleted from the book list");
+
                 BookList.RemoveAt(i);
 
             }
@@ -93,6 +98,7 @@ public class Book
 
     public static void SearchGenre()
     {
+
         Console.Write("Anna genre jonka mukaan haluat etsiä kirjoja -");
 
         string? genre = Console.ReadLine() ?? string.Empty;
@@ -103,7 +109,6 @@ public class Book
             {
                 Console.WriteLine($"{book.Title}");
                 found = true;
-
             }
         }
         if (found == false)
@@ -114,6 +119,7 @@ public class Book
 
     public static void SearchName()
     {
+
         Console.WriteLine("Haluatko\n1. Etsiä kirjan nimen mukaan\n2. Kirjan tekijän mukaan?");
 
         string? input = Console.ReadLine() ?? string.Empty;
@@ -164,6 +170,7 @@ public class Book
     public static void AllBooks()
     {
         Console.WriteLine("Listataan kaikki kirjat");
+
         foreach (Book book in BookList)
         {
             Console.WriteLine($"Nimi: {book.Title}, Kirjoittaja: {book.Author}, Genre: {book.Genre}, Julkaisuvuosi {book.Year}\n-----------------------------------------------------------------------------------------------------------------");
@@ -211,6 +218,12 @@ public class Book
         {
             Console.WriteLine("Olemassa olevaa listaa ei löytynyt");
             
+        }
+
+
+        foreach (Book book in Booklist)
+        {
+            Console.WriteLine($"Nimi: {book.Title}, Kirjoittaja: {book.Author}, Genre: {book.Genre}, Julkaisuvuosi {book.Year}");
         }
 
     }
