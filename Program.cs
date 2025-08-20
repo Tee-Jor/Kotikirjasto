@@ -19,7 +19,7 @@ class Program
 
             if (input != null && input.Equals("1"))
             {
-
+                AddBook();
             }
 
             if (input != null && input.Equals("2"))
