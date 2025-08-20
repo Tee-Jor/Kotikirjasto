@@ -1,4 +1,4 @@
-namespace Book;
+namespace Kotikirjasto;
 
 public class Book
 {
@@ -8,12 +8,12 @@ public class Book
     public string Genre { get; set; }
     public int Year { get; set; }
 
-    
+
 
 
     public Book(string title, string author, string genre, int year)
     {
-        
+
         this.Title = title;
         this.Author = author;
         this.Genre = genre;
@@ -21,7 +21,7 @@ public class Book
 
     }
 
-    public void AddBook()
+    public static void AddBook()
     {
         Console.WriteLine("Lisää kirja antamalla seuraavat tiedot");
 
@@ -51,19 +51,19 @@ public class Book
 
         }
         if (found)
-            {
-                Console.WriteLine($"{title}: {author} can already be found on the book list");
-            }
+        {
+            Console.WriteLine($"{title}: {author} can already be found on the book list");
+        }
         else
-            {
-                Console.WriteLine($"{title}: {author} is added to the book list");
-                Booklist.Add(newBook);
-            }
+        {
+            Console.WriteLine($"{title}: {author} is added to the book list");
+            Booklist.Add(newBook);
+        }
 
 
     }
 
-    public void RemoveBook()
+    public static void RemoveBook()
     {
         Console.WriteLine("Anna seuraavat poistettavan kirjan tiedot");
 
@@ -79,27 +79,94 @@ public class Book
         {
             if (Booklist[i].Title.Equals(title, StringComparison.CurrentCultureIgnoreCase) && Booklist[i].Author.Equals(author, StringComparison.CurrentCultureIgnoreCase))
             {
-                Booklist.RemoveAt(i);
                 Console.WriteLine($"{title}: {author} has been deleted from the book list");
+                Booklist.RemoveAt(i);
+               
             }
         }
 
     }
 
-    public void SearchGenre()
+    public static void SearchGenre()
     {
+        Console.WriteLine("Anna genre jonka mukaan haluat etsiä kirjoja");
 
+        string? genre = Console.ReadLine();
+        bool found = false;
+        foreach (var book in Booklist)
+        {
+            if (book.Genre.Equals(genre, StringComparison.CurrentCultureIgnoreCase))
+            {
+                Console.WriteLine($"{book.Title}");
+                found = true;
+
+            }
+        }
+        if (found == false)
+        {
+            Console.WriteLine($"Genrestä {genre} ei löytynyt yhtään kirjaa");
+        }
     }
 
-    public void SearchName()
+    public static void SearchName()
     {
+        Console.WriteLine("Haluatko 1. Etsiä kirjan nimen mukaan\n2. Kirjan tekijän mukaan?");
 
+        string? input = Console.ReadLine();
+
+        if (input != null && input.Equals("1"))
+        {
+            Console.WriteLine("Anna kirjan nimi");
+            string? name = Console.ReadLine();
+
+            bool found = false;
+            foreach (var book in Booklist)
+            {
+                if (book.Title.Equals(name, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    Console.WriteLine($"{book.Title}");
+                    found = true;
+
+                }
+            }
+            if (found == false)
+            {
+                Console.WriteLine($"Nimellä {name} ei löytynyt yhtään kirjaa");
+            }
+        }
+        if (input != null && input.Equals("2"))
+        {
+            Console.WriteLine("Anna kirjoittajan nimi");
+            string? writer = Console.ReadLine();
+
+            bool found = false;
+            foreach (var book in Booklist)
+            {
+                if (book.Author.Equals(writer, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    Console.WriteLine($"{book.Title}");
+                    found = true;
+
+                }
+            }
+            if (found == false)
+            {
+                Console.WriteLine($"Kirjoittajalla {writer} ei löytynyt yhtään kirjaa");
+            }
+
+        }
     }
 
-    public void AllBooks()
+    public static void AllBooks()
     {
-        
+        Console.WriteLine("Listataan kaikki kirjat");
+        foreach (Book book in Booklist)
+        {
+            Console.WriteLine($"Nimi: {book.Title}, Kirjoittaja: {book.Author}, Genre: {book.Genre}, Julkaisuvuosi {book.Year}");
+        }
     }
+
+   
 
 
 }

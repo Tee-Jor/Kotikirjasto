@@ -12,36 +12,39 @@ class Program
 
             string? input = Console.ReadLine();
 
-            if (input != null && input.Equals("6"))
+            switch (input)
             {
-                break;
+                case "1":
+                    Book.AddBook();
+                    break;
+
+                case "2":
+                    Book.RemoveBook();
+                    break;
+
+                case "3":
+                    Book.AllBooks();
+                    break;
+
+                case "4":
+                    Book.SearchGenre();
+                    break;
+
+                case "5":
+                    Book.SearchName();
+                    break;
+
+                case "6":
+                    Console.WriteLine("Heippa!");
+                    return;
+
+                default:
+                    Console.WriteLine("Virheellinen valinta, yritä uudelleen.");
+                    break;    
             }
+        }    
 
-            if (input != null && input.Equals("1"))
-            {
-                AddBook();
-            }
-
-            if (input != null && input.Equals("2"))
-            {
-
-            }
-
-            if (input != null && input.Equals("3"))
-            {
-
-            }
-
-            if (input != null && input.Equals("4"))
-            {
-
-            }
             
-            if (input != null && input.Equals("5"))
-            {
-                
-            }
-        }
     }    
         
 }
