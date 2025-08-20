@@ -9,7 +9,7 @@ class Program
         Book.LoadList();
         Book.AllBooks();
         Console.WriteLine("Paina Enter jatkaaksesi...");
-        Console.ReadLine(); // odottaa käyttäjää ennen silmukkaa
+        Console.ReadLine();
 
         {
 
@@ -40,21 +40,21 @@ class Program
                         Console.Clear();
                         Book.AllBooks();
                         Console.WriteLine("Paina Enter jatkaaksesi...");
-                        Console.ReadLine(); // odottaa käyttäjää ennen silmukkaa
+                        Console.ReadLine();
                         break;
 
                     case "4":
                         Console.Clear();
                         Book.SearchGenre();
                         Console.WriteLine("Paina Enter jatkaaksesi...");
-                        Console.ReadLine(); // odottaa käyttäjää ennen silmukkaa
+                        Console.ReadLine();
                         break;
 
                     case "5":
                         Console.Clear();
                         Book.SearchName();
                         Console.WriteLine("Paina Enter jatkaaksesi...");
-                        Console.ReadLine(); // odottaa käyttäjää ennen silmukkaa
+                        Console.ReadLine();
                         break;
 
                     case "6":
@@ -76,7 +76,7 @@ class Program
 
 
         }
-    }   
-         
-        
+    }
+
+
 }

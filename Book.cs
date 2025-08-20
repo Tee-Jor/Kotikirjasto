@@ -14,7 +14,7 @@ public class Book
     public int Year { get; set; }
 
 
-    public Book() {}
+    public Book() { }
 
     public Book(string title, string author, string genre, int year)
     {
@@ -72,7 +72,7 @@ public class Book
     public static void RemoveBook()
     {
         AllBooks();
-        
+
         Console.WriteLine("Anna seuraavat poistettavan kirjan tiedot");
 
         Console.WriteLine("Anna kirjan nimi");
@@ -204,7 +204,7 @@ public class Book
 
         if (File.Exists(SavedBookList))
         {
-            string json = File.ReadAllText(SavedBookList); // Luetaan tiedosto
+            string json = File.ReadAllText(SavedBookList);
             var loadedList = JsonSerializer.Deserialize<List<Book>>(json);
 
             if (loadedList != null)
@@ -212,23 +212,23 @@ public class Book
                 BookList = loadedList;
                 Console.WriteLine("Viimeksi avoinna ollut lista ladattu onnistuneesti.");
             }
-            
+
         }
         else
         {
             Console.WriteLine("Olemassa olevaa listaa ei löytynyt");
-            
+
         }
 
 
-        foreach (Book book in Booklist)
+        foreach (Book book in BookList)
         {
             Console.WriteLine($"Nimi: {book.Title}, Kirjoittaja: {book.Author}, Genre: {book.Genre}, Julkaisuvuosi {book.Year}");
         }
 
     }
 
-   
+
 
 
 }
